@@ -1,0 +1,38 @@
+a.so_widget_url:active,
+a.so_widget_url:hover,
+a.so_widget_url{
+    text-decoration: none ;
+    color: #000000 !important;
+}
+.so_widget{
+    width: 170px;
+    height: 40px;
+    border: 1px solid #c8c8c8;
+    border-radius: 5px;
+}
+.so_widget_avatar{
+    margin: 3px;
+    height: 34px;
+    width: 34px;
+    border: 1px solid red;
+    float: left;
+}
+.so_widget_info{
+    margin: 3px;
+    height: 34px;
+    float: left;
+}
+.so_widget_name{
+    font-size: 9pt;
+    font-weight: bold;
+    margin: 0 0 0 3px;
+    text-decoration: none;
+}
+.so_widget_badges{
+    font-size: 10pt;
+    margin: 5px 0 0 3px;
+    text-decoration: none;
+}
+.badge1{ color: #ffcc01; }
+.badge2{ color: #b4b8bc; }
+.badge3{ color: #d1a684; }

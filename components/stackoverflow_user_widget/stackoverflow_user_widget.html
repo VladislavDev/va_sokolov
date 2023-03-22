@@ -1,0 +1,29 @@
+{% if so_profile.status == 'successful' %}
+    <a class="so_widget_url" href="{{ so_profile.data.link }}">
+        <div class="so_widget">
+            <div class="so_widget_avatar">
+            </div>
+            <div class="so_widget_info">
+                <p class="so_widget_name">
+                    {% if so_profile.use_user_personal %}
+                        {{ so_profile.data.display_name }}
+                    {% else %}
+                        stackoverflow
+                    {% endif %}
+                </p>
+                <p class="so_widget_badges">
+                    <b>{{ so_profile.data.reputation }}</b> 
+                    {% if so_profile.data.badge_counts.gold > 0 %}
+                        <span class="badge1">●</span>{{ so_profile.data.badge_counts.gold }}
+                    {% endif %}
+                    {% if so_profile.data.badge_counts.silver > 0 %}
+                        <span class="badge2">●</span>{{ so_profile.data.badge_counts.silver }}
+                    {% endif %}
+                    {% if so_profile.data.badge_counts.bronze > 0 %}
+                        <span class="badge3">●</span>{{ so_profile.data.badge_counts.bronze }}
+                    {% endif %}
+                <p>
+            </div>
+        </div>
+    </a>
+{% endif %}
