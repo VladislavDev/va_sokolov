@@ -62,7 +62,7 @@ ROOT_URLCONF = 'va_sokolov.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates", ],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -138,6 +138,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "components",
+    BASE_DIR / "staticfiles",
 ]
 
 # Default primary key field type

@@ -1,0 +1,36 @@
+html, body{
+    margin: 0;
+}
+header{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(64, 62, 74);
+}
+.top-menu{
+    width: min-content;
+    height: 100%;
+    display: inline-flex;
+    margin: 0;
+}
+.top-menu > li{
+    color: #d4d8ec;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-decoration: none;
+    margin-right: 30px;
+}
+a.topmenu_item:active,
+a.topmenu_item:hover,
+a.topmenu_item{
+    text-decoration: none;
+    color: #d4d8ec;
+    font-size: 20pt;
+}
+a.topmenu_item > p{
+    margin: auto 0 auto 0;
+}
+.page-content{
+    margin: 0 10% 0 10%;
+}

@@ -1,0 +1,31 @@
+{% load static %}
+
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %}Vladislav Sokolov site{% endblock %}</title>
+
+        {% block css %}
+            <link rel="stylesheet" href="{% static 'base/base.css' %}" />
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            {% block header %}
+                <ul class="top-menu">
+                    <li><a class="topmenu_item" href="{% url 'index' %}">
+                        <p>Home</p>
+                    </a></li>
+                    <li><a class="topmenu_item" href="{% url 'projects' %}">
+                        <p>Projects</p>
+                    </a></li>
+                </ul>
+            {% endblock %}
+        </header>
+        <div class="page-content">
+            {% block content %}
+            Nothing here
+            {% endblock %}
+        </div>
+    </body>
+</html>
