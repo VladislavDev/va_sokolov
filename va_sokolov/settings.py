@@ -36,6 +36,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 INSTALLED_APPS = [
     'api_registrator.apps.ApiRegistratorConfig',
     'userprofile.apps.UserprofileConfig',
+    'home.apps.HomeConfig',
     'projects.apps.ProjectsConfig',
     'skills.apps.SkillsConfig',
     "django_components",

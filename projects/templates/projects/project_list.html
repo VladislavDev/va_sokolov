@@ -1,37 +1,36 @@
-{% load static %}
-<!doctype html>
-<html>
-    <head>
-        <title>Проекты</title>
+{% extends "base/base.html" %}
 
-        <link rel="stylesheet" href="{% static 'projects/project_list.css' %}">
-    </head>
-    <body>
-        <header>
-            
-        </header>
-        {% if object_list %}
-            <div class="project-list">
-                {% for project in object_list %}
-                    <div class="project-card">
-                        <div class="project-preview">
-                            {% if project.preview %}
-                                <img src="{{project.preview.url}}" />
-                            {% endif %}
-                        </div>
-                        <p class="project-name">{{ project.name }}</p>
-                        <div class="project-skills">
-                            {% if project.skills %}
-                                {% for skill in project.skills.all %}
-                                    <div class="project-skill">
-                                        {{ skill.name }}
-                                    </div>
-                                {% endfor %}
-                            {% endif %}
-                        </div>
+{% load static %}
+
+{% block title %}Projects{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'projects/project_list.css' %}" />
+{% endblock %}
+
+{% block content %} 
+    {% if object_list %}
+        <div class="project-list">
+            {% for project in object_list %}
+                <div class="project-card">
+                    <div class="project-preview">
+                        {% if project.preview %}
+                            <img src="{{project.preview.url}}" />
+                        {% endif %}
                     </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-    </body>
-</html>
+                    <p class="project-name">{{ project.name }}</p>
+                    <div class="project-skills">
+                        {% if project.skills %}
+                            {% for skill in project.skills.all %}
+                                <div class="project-skill">
+                                    {{ skill.name }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

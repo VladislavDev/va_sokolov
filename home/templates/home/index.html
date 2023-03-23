@@ -1,0 +1,41 @@
+{% extends "base/base.html" %}
+
+{% load static %}
+{% load component_tags %}
+
+{% block title %}
+    {{ profile.user.first_name }} {{ profile.user.last_name }}
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'home/index.css' %}" />
+    {% component_css_dependencies %}
+{% endblock %}
+
+{% block content %}
+<div class="about-me">
+    <div class="abstract">
+        <h3>Welcome to my personal website!</h3>
+        <p>I am a young scientist, analyst and developer. I am constantly studying 
+        and participating in various activities. Now I'm looking for a new job for myself.</p>
+        <p>Here you can find out who I am and what I do, see my portfolio, make an 
+        interesting offer of cooperation. The site is still developing, and you can 
+        contribute to it in the project repository.</p>
+        {% component "stackoverflow_user_widget" user_id="21331354" %}
+    </div>
+    <div class="personal">
+        <div class="photo">
+            <img src="{{ profile.photo.url }}" />
+        </div>
+        <p class="profile-name">{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+        <div class="location">
+            <img src="media/icons/location.png" />
+            {{ profile.location }}
+        </div>
+    </div>
+</div>
+
+
+<div class="news_feed_stub"><p>Nothing here</p></div>
+{% endblock %}
