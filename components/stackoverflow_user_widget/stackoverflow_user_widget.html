@@ -1,9 +1,23 @@
+{% load static %}
+
+<!-- Output account stats if request status == 200 or info was get from API-registrator -->
 {% if so_profile.status == 'successful' %}
+
+    <!-- Link to user account -->
     <a class="so_widget_url" href="{{ so_profile.data.link }}">
         <div class="so_widget">
+
+            <!-- Avatar use so_profile user icon if component.use_user_personal == true, else - stackoverflow logo -->
             <div class="so_widget_avatar">
+                {% if so_profile.use_user_personal %}
+                    <img src="{{ so_profile.data.profile_image }}" alt="photo"/>
+                {% else %}
+                    <img src="{% static 'stackoverflow_user_widget/media/so_icon.png' %}" alt="logo"/>
+                {% endif %}
             </div>
+
             <div class="so_widget_info">
+                <!-- Name use so_profile user display_name if component.use_user_personal == true, else - "stackoverflow" -->
                 <p class="so_widget_name">
                     {% if so_profile.use_user_personal %}
                         {{ so_profile.data.display_name }}
@@ -11,14 +25,19 @@
                         stackoverflow
                     {% endif %}
                 </p>
+                <!-- Output account statistics -->
                 <p class="so_widget_badges">
+                    <!-- Output stackoverflow reputation -->
                     <b>{{ so_profile.data.reputation }}</b> 
+                    <!-- Output gold badges number if user has it -->
                     {% if so_profile.data.badge_counts.gold > 0 %}
                         <span class="badge1">●</span>{{ so_profile.data.badge_counts.gold }}
                     {% endif %}
+                    <!-- Output silver badges number if user has it -->
                     {% if so_profile.data.badge_counts.silver > 0 %}
                         <span class="badge2">●</span>{{ so_profile.data.badge_counts.silver }}
                     {% endif %}
+                    <!-- Output bronze badges number if user has it -->
                     {% if so_profile.data.badge_counts.bronze > 0 %}
                         <span class="badge3">●</span>{{ so_profile.data.badge_counts.bronze }}
                     {% endif %}

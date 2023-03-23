@@ -14,8 +14,12 @@ a.so_widget_url{
     margin: 3px;
     height: 34px;
     width: 34px;
-    border: 1px solid red;
     float: left;
+}
+.so_widget_avatar > img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 .so_widget_info{
     margin: 3px;
