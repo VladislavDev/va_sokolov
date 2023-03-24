@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'api_registrator.apps.ApiRegistratorConfig',
     'userprofile.apps.UserprofileConfig',
     'home.apps.HomeConfig',
+    'feeds.apps.FeedsConfig',
     'projects.apps.ProjectsConfig',
     'skills.apps.SkillsConfig',
     "django_components",

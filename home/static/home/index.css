@@ -76,3 +76,47 @@ html{
     color: #2f2f2f;
     font-weight: bold;
 }
+.feed{
+    margin: 25px auto;
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+    width: calc(800px - 60px);
+    box-shadow: 2px 2px 2px #e3e3e3;
+    padding: 30px;
+}
+.feed > p{
+    margin: 0;
+    text-align: justify;
+    color: #363636;
+    font-size: 10pt;
+}
+.publication{
+    height: 35px;
+    margin-bottom: 16px;
+}
+.publication-photo{
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+}
+.publication-info{
+    float: left;
+    margin-left: 10px;
+}
+.publication-author{
+    font-weight: bold;
+    font-size: 11pt;
+    margin: 0;
+}
+.publication-date{
+    font-size: 10pt;
+    margin: 2px 0 0 0;
+    color: #7e7e7e;
+}
+.publication-photo > img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
