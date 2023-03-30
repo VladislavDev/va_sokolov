@@ -29,14 +29,15 @@ class Feed(models.Model):
         rows = [ {'images': [] } for i in range(len(image_rows_template))]
         
         # Images groupping in rows
-        for image in self.images.all():
+        for ind, image in enumerate(self.images.all()):
             for i, row in enumerate(image_rows_template):
                 if row > 0:
                     width, height = get_image_dimensions(image.image.file)
                     
                     rows[i]['images'].append({
                         'url': image.image.url,
-                        'grow': width / height
+                        'grow': width / height,
+                        'index': ind
                     })
                     
                     image_rows_template[i] -= 1

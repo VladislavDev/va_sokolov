@@ -13,6 +13,70 @@
     {% component_css_dependencies %}
 {% endblock %}
 
+{% block js %}
+    {{ block.super }}
+
+    <script>
+
+        $(document).ready(function(){
+
+            current_image_set = [];
+            current_image_index = -1;
+
+            ImagePopupHide();
+
+            function ImagePopupShow(img_set, img_index){
+
+                $('.detail_feed_image').children('img').attr('src', img_set.at(img_index)['url']);
+                current_image_index = img_set.at(img_index)['index'];
+
+                $('.popup-page').show();
+            }
+
+            function ImagePopupHide(){
+                $('.popup-page').hide();
+            }
+
+            $('.popup-page').on('click', function(){
+                ImagePopupHide();
+            });
+            $('.popup-image-detail').on('click', function(e){
+                e.stopPropagation();
+            });
+
+            $('.popup-img-sliders > div').on('click', function(){
+                if ($(this).attr("id") == 'next'){
+                    ImagePopupShow(current_image_set, current_image_index + 1 - current_image_set.length);
+                } else {
+                    ImagePopupShow(current_image_set, current_image_index - 1);
+                }
+            });
+
+
+            $('.feed-image-container').on('click', function(){
+
+                let image_id = $(this).find('img').attr('id');
+                let image_set = [];
+
+                $(this).parent().parent().find('img').each(
+                    function(ind){
+                        image_set.push({
+                            'url': this.src,
+                            'index': ind
+                        });
+                    }
+                );
+
+                current_image_set = image_set
+                current_image_index = image_id
+
+                ImagePopupShow(image_set, image_id);
+            });
+        });
+
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class="about-me">
         <div class="abstract">
@@ -53,7 +117,7 @@
                     <div class="feed-image-row">
                         {% for image in row.images %}
                             <div class="feed-image-container" style="flex-grow: {{ image.grow }}">
-                                <img src="{{ image.url }}" />
+                                <img src="{{ image.url }}" id="{{ image.index }}" />
                             </div>
                         {% endfor %}
                     </div>
@@ -65,5 +129,19 @@
             <p>Nothing here</p>
         </div>
     {% endfor %}
+
+    {% block extension_content %}
+        <div class="popup-page" id="popup_images">
+            <div class="popup-image-detail">
+                <div class="detail_feed_image">
+                    <img src="/" />
+                    <div class="popup-img-sliders">
+                        <div id="previous"><p><</p></div>
+                        <div id="next"><p>></p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
 
 {% endblock %}

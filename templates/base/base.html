@@ -8,6 +8,10 @@
         {% block css %}
             <link rel="stylesheet" href="{% static 'base/base.css' %}" />
         {% endblock %}
+
+        {% block js %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        {% endblock %}
     </head>
     <body>
         <header>
@@ -24,8 +28,11 @@
         </header>
         <div class="page-content">
             {% block content %}
-            Nothing here
+                Nothing here
             {% endblock %}
+        </div>
+        <div class="extension-content">
+            {% block extension_content %}{% endblock %}
         </div>
     </body>
 </html>

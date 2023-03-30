@@ -35,3 +35,11 @@ a.topmenu_item > p{
 .page-content{
     margin: 0 10% 0 10%;
 }
+.extension-content{
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+    pointer-events: none;
+}
