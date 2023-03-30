@@ -47,7 +47,18 @@
                     <p class="publication-date">{{ feed.pub_date }}</p>
                 </div>
             </div>
-            <p>{{ feed.text }}</p>
+            <p class="feed-text">{{ feed.text }}</p>
+            <div class="feed-images">
+                {% for row in feed.image_rows %}
+                    <div class="feed-image-row">
+                        {% for image in row.images %}
+                            <div class="feed-image-container" style="flex-grow: {{ image.grow }}">
+                                <img src="{{ image.url }}" />
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     {% empty %}
         <div class="news_feed_stub">

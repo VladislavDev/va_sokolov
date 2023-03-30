@@ -11,6 +11,7 @@ html{
     aspect-ratio: 2.9/1;
     display: flex;
     box-shadow: 2px 2px 2px #e3e3e3;
+    background-color: #ffffff;
 }
 .abstract{
     width: calc(70% - 40px);
@@ -83,11 +84,12 @@ html{
     width: calc(800px - 60px);
     box-shadow: 2px 2px 2px #e3e3e3;
     padding: 30px;
+    background-color: #ffffff;
 }
 .feed > p{
     margin: 0;
     text-align: justify;
-    color: #363636;
+    color: #272727;
     font-size: 10pt;
 }
 .publication{
@@ -119,4 +121,26 @@ html{
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+.feed-text{
+    padding-bottom: 8px;
+}
+.feed-images{
+    width: 100%;
+    font-size: 0;
+    overflow: hidden;
+}
+.feed-image-row{
+    width: 100%;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 0;
+    gap: 2px;
+}
+.feed-image-container{
+    flex: 1;
+}
+.feed-image-container > img{
+    width: 100%;
 }
