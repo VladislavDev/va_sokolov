@@ -3,12 +3,15 @@ a.so_widget_url:hover,
 a.so_widget_url{
     text-decoration: none ;
     color: #000000 !important;
+    width: min-content;
+    display: inline-block;
 }
 .so_widget{
     width: 170px;
     height: 40px;
     border: 1px solid #c8c8c8;
     border-radius: 5px;
+    margin: 0;
 }
 .so_widget_avatar{
     margin: 3px;
