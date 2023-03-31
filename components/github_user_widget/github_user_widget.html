@@ -1,0 +1,32 @@
+{% load static %}
+
+<!-- Output account stats if request status == 200 or info was get from API-registrator -->
+{% if gh_profile.status == 'successful' %}
+
+    <a class="gh_widget_url" href="{{ gh_profile.data.html_url }}" target="_blank">
+        <div class="gh_widget">
+
+            <div class="gh_widget_avatar">
+                {% if gh_profile.use_user_personal %}
+                    <img src="{{ gh_profile.data.avatar_url }}" alt="photo"/>
+                {% else %}
+                    <img src="{% static 'github_user_widget/media/gh_icon.png' %}" alt="logo"/>
+                {% endif %}
+            </div>
+
+            <div class="gh_widget_info">
+                <p class="gh_widget_name">
+                    {% if gh_profile.use_user_personal %}
+                        {{ gh_profile.data.login }}
+                    {% else %}
+                        GitHub
+                    {% endif %}
+                </p>
+                <p class="gh_widget_stats">
+                    <b>{{ gh_profile.data.public_repos }}</b> repos
+                    <b>{{ gh_profile.data.public_gists }}</b> gists
+                </p>
+            </div>
+        </div>
+    </a>
+{% endif %}

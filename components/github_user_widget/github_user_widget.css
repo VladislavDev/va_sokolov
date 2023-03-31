@@ -1,0 +1,41 @@
+a.gh_widget_url:active,
+a.gh_widget_url:hover,
+a.gh_widget_url{
+    text-decoration: none ;
+    color: #000000 !important;
+    width: min-content;
+    display: inline-block;
+}
+.gh_widget{
+    width: 170px;
+    height: 40px;
+    border: 1px solid #c8c8c8;
+    border-radius: 5px;
+}
+.gh_widget_avatar{
+    margin: 3px;
+    height: 34px;
+    width: 34px;
+    float: left;
+}
+.gh_widget_avatar > img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.gh_widget_info{
+    margin: 3px;
+    height: 34px;
+    float: left;
+}
+.gh_widget_name{
+    font-size: 9pt;
+    font-weight: bold;
+    margin: 0 0 0 3px;
+    text-decoration: none;
+}
+.gh_widget_stats{
+    font-size: 10pt;
+    margin: 5px 0 0 3px;
+    text-decoration: none;
+}

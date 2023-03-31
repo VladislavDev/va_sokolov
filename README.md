@@ -22,7 +22,7 @@ Since the widget uses the stackexchange API, and the number of daily requests is
 | `03/20/2023`  | `03/24/2023` | :heavy_check_mark: `Done`  | The main page will be created. At the moment, only basic information will be posted on it        |
 | `03/21/2023`  | `03/27/2023` | :heavy_check_mark: `Done`  | A news feed with a slider of attached images will be added. A translation (en, ru) will be added |
 | `03/25/2023`  | `04/10/2023` | :clock1: `In work`         | A special model for contacts has been created. Special components will allow you to display the necessary information about me from profile sites |
-| `03/25/2023`  | `03/31/2023` | :clock1: `In work`         | Additional widgets will be created for GitHub and Habr Career                                    |
+| `03/25/2023`  | `03/31/2023` | :warning: `Done` without HabrCareer widget | Additional widgets will be created for GitHub and Habr Career                                    |
 | `04/01/2023`  | `04/15/2023` | :clock9: `Awaiting work`   | Added modeltranslation. Translations have been created for all existing models                   |
 | `04/05/2023`  | `04/20/2023` | :clock9: `Awaiting work`   | Sertificate app and section created                                                              |
 
