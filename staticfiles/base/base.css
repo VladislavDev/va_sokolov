@@ -8,6 +8,7 @@ header{
     background-color: rgb(64, 62, 74);
 }
 .top-menu{
+    float: left;
     width: min-content;
     height: 100%;
     display: inline-flex;
@@ -42,4 +43,33 @@ a.topmenu_item > p{
     position: fixed;
     top: 0px;
     pointer-events: none;
+}
+form[name=lang_form]{
+    float: right;
+    height: 100%;
+}
+.lang-switcher{
+    height: 100%;
+    margin-right: 10px;
+}
+.lang-btn{
+    float: left;
+    height: 100%;
+    display: none;
+}
+.lang-btn[active]{
+    display: block;
+}
+.lang-switcher:hover > .lang-btn{
+    display: block;
+}
+.lang-btn > img{
+    height: 100%;
+    object-fit: contain;
+    filter: saturate(0.1);
+    margin-left: 3px;
+}
+.lang-btn > img:hover{
+    filter: saturate(0.9);
+    cursor: pointer;
 }

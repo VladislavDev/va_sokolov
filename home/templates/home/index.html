@@ -1,4 +1,6 @@
 {% extends "base/base.html" %}
+{% load i18n %}
+{% load l10n %}
 
 {% load static %}
 {% load component_tags %}
@@ -116,9 +118,11 @@
                 {% for row in feed.image_rows %}
                     <div class="feed-image-row">
                         {% for image in row.images %}
-                            <div class="feed-image-container" style="flex-grow: {{ image.grow }}">
-                                <img src="{{ image.url }}" id="{{ image.index }}" />
-                            </div>
+                            {% localize off %}
+                                <div class="feed-image-container" style="flex-grow: {{ image.grow }};">
+                                    <img src="{{ image.url }}" id="{{ image.index }}" />
+                                </div>
+                            {% endlocalize %}
                         {% endfor %}
                     </div>
                 {% endfor %}

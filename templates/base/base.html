@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!doctype html>
 <html>
@@ -11,6 +12,12 @@
 
         {% block js %}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+            <script>
+                function setLang(lang_code){
+                    $('input.current-lang').val(lang_code);
+                    document.lang_form.submit();
+                }
+            </script>
         {% endblock %}
     </head>
     <body>
@@ -18,12 +25,34 @@
             {% block header %}
                 <ul class="top-menu">
                     <li><a class="topmenu_item" href="{% url 'index' %}">
-                        <p>Home</p>
+                        <p>{% translate 'Home' %}</p>
                     </a></li>
                     <li><a class="topmenu_item" href="{% url 'projects' %}">
-                        <p>Projects</p>
+                        <p>{% translate 'Projects' %}</p>
                     </a></li>
                 </ul>
+
+                <form name='lang_form' action="{% url 'set_language' %}" method="post">{% csrf_token %}
+
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+
+                    <input name="next" type="hidden" value="{{ redirect_to }}">
+                    <input class='current-lang' name="language" type="hidden" value="{{ LANGUAGE_CODE }}">
+                    <div class="lang-switcher">
+                        {% for language in languages %}
+                            <div class="lang-btn" onclick="setLang('{{ language.code }}');">
+                                {% if LANGUAGE_CODE != language.code %}
+                                    <img src='media/langs/{{ language.code }}.png' />
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        <div class="lang-btn" active>
+                            <img src='media/langs/{{ LANGUAGE_CODE }}.png' />
+                        </div>
+                    </div>
+                </form>
             {% endblock %}
         </header>
         <div class="page-content">
