@@ -8,7 +8,6 @@ html{
     border: 1px solid #e3e3e3;
     border-radius: 10px;
     width: 800px;
-    aspect-ratio: 2.9/1;
     display: flex;
     box-shadow: 2px 2px 2px #e3e3e3;
     background-color: #ffffff;
@@ -54,12 +53,23 @@ html{
     margin: 3% 0 0 0;
     padding-left: 10%;
     color: #595959;
-    height: 5%;
+    height: 14px;
 }
 .location > img {
     height: 90%;
     aspect-ratio: 1/1;
     object-fit: contain;
+}
+.contacts{
+    margin: 3% 10% 3% 10%;
+}
+.contact{
+    width: 100%;
+    border-radius: 5px;
+    font-size: 8.5pt;
+    background-color: #efefef;
+    margin-bottom: 2%;
+    padding: 3px 5px 3px 5px;
 }
 
 .news_feed_stub{
@@ -215,4 +225,21 @@ html{
 }
 .popup-img-sliders > div:not(:hover) > p{
     transition: 0.2s;
+}
+a.contact-url:active,
+a.contact-url:hover,
+a.contact-url{
+    text-decoration: none;
+    color: #292929
+}
+.contact > p{
+    margin: auto 0;
+    height: 13.6px;
+    vertical-align: middle;
+}
+.contact > p > img{
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    vertical-align: middle;
 }

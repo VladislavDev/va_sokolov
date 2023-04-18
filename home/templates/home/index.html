@@ -102,6 +102,18 @@
                 <img src="media/icons/location.png" />
                 {{ profile.location }}
             </div>
+            <div class="contacts">
+                {% for contact in profile.user.contacts.all %}
+                    <a class="contact-url" href="{{ contact.link_url }}"  target="_blank">
+                        <div class="contact">
+                            <p>
+                                <img src="media/{{ contact.contact_icon }}" />
+                                {{ contact.contact }}
+                            </p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
         </div>
     </div>
 
