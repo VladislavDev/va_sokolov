@@ -87,3 +87,27 @@ class ProfileContact(models.Model):
     @property
     def contact_icon(self):
         return self.default_icons[self.contact_type]
+    
+class Communities(models.Model):
+    
+    components_name = {
+        'so': 'stackoverflow_user_widget',
+        'gh': 'github_user_widget'
+    }
+    
+    community_type = models.CharField(
+        max_length=7,
+        choices=(
+            ('so', 'stackoverflow'),
+            ('gh', 'GitHub')
+        )
+    )
+    
+    identifier = models.CharField(max_length=30)
+    use_personal = models.BooleanField(default=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='communities')
+    
+    @property
+    def component(self):
+        return self.components_name[self.community_type]
+        

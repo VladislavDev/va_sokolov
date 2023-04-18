@@ -89,8 +89,9 @@
             interesting offer of cooperation. The site is still developing, and you can 
             contribute to it in the project repository.</p>
             
-            {% component "stackoverflow_user_widget" user_id="21331354" %}
-            {% component "github_user_widget" user_login="VladislavDev" %}
+            {% for user_community in profile.user.communities.all %}
+                {% component user_community.component user_community.identifier user_community.use_personal %}
+            {% endfor %}
 
         </div>
         <div class="personal">

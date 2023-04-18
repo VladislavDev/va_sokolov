@@ -15,6 +15,11 @@ class ContactsInline(admin.StackedInline):
     model = ProfileContact
     can_delete = True
     verbose_name_plural = 'Contacts'
+    
+class CommunitiesInline(admin.StackedInline):
+    model = Communities
+    can_delete = True
+    verbose_name_plural = 'Communities'
  
 
 class UserAdmin(UserAdmin):
